@@ -2,6 +2,11 @@ package br.com.erudio.cfc.model.enums;
 
 import lombok.AllArgsConstructor;
 
+/**
+ * @author Erik Vasconcelos
+ * @since 2024-01-31
+ */
+
 @AllArgsConstructor
 public enum ClientStatus {
 

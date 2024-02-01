@@ -12,6 +12,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import br.com.erudio.cfc.exception.ObjectNotFoundException;
 import br.com.erudio.cfc.exception.RequestWithNullObjectException;
 
+/**
+ * @author Erik Vasconcelos
+ * @since 2024-02-01
+ */
+
 @RestControllerAdvice
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
