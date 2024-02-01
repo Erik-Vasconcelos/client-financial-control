@@ -15,8 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.erudio.cfc.model.Client;
+import br.com.erudio.cfc.dto.ClientDTO;
 import br.com.erudio.cfc.service.ClientService;
+
+/**
+ * @author Erik Vasconcelos
+ * @since 2024-01-31
+ */
 
 @RestController
 @RequestMapping("/clients")
@@ -26,22 +31,22 @@ public class ClientController {
 	private ClientService clientService;
 
 	@GetMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Client> getPerson(@PathVariable(name = "id") Long id) {
+	public ResponseEntity<ClientDTO> getPerson(@PathVariable(name = "id") Long id) {
 		return ResponseEntity.status(HttpStatus.OK).body(clientService.findById(id));
 	}
 
 	@GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<Client>> getPerson() {
+	public ResponseEntity<List<ClientDTO>> getPerson() {
 		return ResponseEntity.status(HttpStatus.OK).body(clientService.findAll());
 	}
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Client> create(@RequestBody Client client) {
-		return ResponseEntity.status(HttpStatus.OK).body(clientService.create(client));
+	public ResponseEntity<ClientDTO> create(@RequestBody ClientDTO client) {
+		return ResponseEntity.status(HttpStatus.OK).body(clientService.insert(client));
 	}
 
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Client> update(@RequestBody Client client) {
+	public ResponseEntity<ClientDTO> update(@RequestBody ClientDTO client) {
 		return ResponseEntity.status(HttpStatus.OK).body(clientService.update(client));
 	}
 
