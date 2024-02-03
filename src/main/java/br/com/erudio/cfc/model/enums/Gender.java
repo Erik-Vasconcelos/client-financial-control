@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 
 /**
  * @author Erik Vasconcelos
- * @since 31/01/2024
+ * @since 2024-01-31
  */
 
 @AllArgsConstructor

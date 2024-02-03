@@ -1,4 +1,4 @@
-package br.com.erudio.cfc.unittest;
+package br.com.erudio.cfc.unittest.v1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import br.com.erudio.cfc.dto.ClientDTO;
+import br.com.erudio.cfc.dto.v1.ClientDTOV1;
 import br.com.erudio.cfc.mapper.Mapper;
 import br.com.erudio.cfc.model.Client;
 import br.com.erudio.cfc.model.enums.ClientStatus;
@@ -31,7 +31,7 @@ class ModelMapperConvertTest {
 
 	@Test
 	void parseEntityToDTOTest() {
-		ClientDTO dto = Mapper.parseObject(input.mockEntity(1), ClientDTO.class);
+		ClientDTOV1 dto = Mapper.parseObject(input.mockEntity(1), ClientDTOV1.class);
 
 		assertNotNull(dto);
 		assertEquals(1L, dto.getId());
@@ -45,7 +45,7 @@ class ModelMapperConvertTest {
 
 	@Test
 	void parseEntityListToDTOListTest() {
-		List<ClientDTO> outputList = Mapper.parseListObject(input.mockEntityList(), ClientDTO.class);
+		List<ClientDTOV1> outputList = Mapper.parseListObject(input.mockEntityList(), ClientDTOV1.class);
 		assertNotNull(outputList);
 
 		var outputOne = outputList.get(1);

@@ -1,10 +1,10 @@
-package br.com.erudio.cfc.unittest;
+package br.com.erudio.cfc.unittest.v1;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
-import br.com.erudio.cfc.dto.ClientDTO;
+import br.com.erudio.cfc.dto.v1.ClientDTOV1;
 import br.com.erudio.cfc.model.Client;
 import br.com.erudio.cfc.model.enums.ClientStatus;
 import br.com.erudio.cfc.model.enums.Gender;
@@ -17,7 +17,7 @@ public class MockClient {
 		return mockEntity(0);
 	}
 
-	public ClientDTO mockDTO() {
+	public ClientDTOV1 mockDTO() {
 		return mockDTO(0);
 	}
 
@@ -41,8 +41,8 @@ public class MockClient {
 		return client;
 	}
 
-	public ClientDTO mockDTO(Integer number) {
-		ClientDTO dto = new ClientDTO();
+	public ClientDTOV1 mockDTO(Integer number) {
+		ClientDTOV1 dto = new ClientDTOV1();
 		dto.setId(number.longValue());
 		dto.setFirstName("First Name Test" + number);
 		dto.setLastName("Last Name Test" + number);
@@ -71,8 +71,8 @@ public class MockClient {
 		return clients;
 	}
 
-	public List<ClientDTO> mockDTOList() {
-		List<ClientDTO> dtos = new LinkedList<>();
+	public List<ClientDTOV1> mockDTOList() {
+		List<ClientDTOV1> dtos = new LinkedList<>();
 
 		for (int i = 0; i < 15 ; i++) {
 			dtos.add(mockDTO(i));

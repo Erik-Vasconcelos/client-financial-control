@@ -15,38 +15,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.erudio.cfc.dto.ClientDTO;
-import br.com.erudio.cfc.service.ClientService;
+import br.com.erudio.cfc.dto.v2.ClientDTOV2;
+import br.com.erudio.cfc.service.ClientServiceV2;
 
 /**
  * @author Erik Vasconcelos
- * @since 2024-01-31
+ * @since 2024-02-02
  */
 
 @RestController
-@RequestMapping("/clients")
-public class ClientController {
+@RequestMapping("/clients/v2")
+public class ClientControllerV2 {
 
 	@Autowired
-	private ClientService clientService;
+	private ClientServiceV2 clientService;
 
 	@GetMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ClientDTO> getPerson(@PathVariable(name = "id") Long id) {
+	public ResponseEntity<ClientDTOV2> getPerson(@PathVariable(name = "id") Long id) {
 		return ResponseEntity.status(HttpStatus.OK).body(clientService.findById(id));
 	}
 
 	@GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<List<ClientDTO>> getPerson() {
+	public ResponseEntity<List<ClientDTOV2>> getPerson() {
 		return ResponseEntity.status(HttpStatus.OK).body(clientService.findAll());
 	}
 
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ClientDTO> create(@RequestBody ClientDTO client) {
+	public ResponseEntity<ClientDTOV2> create(@RequestBody ClientDTOV2 client) {
 		return ResponseEntity.status(HttpStatus.OK).body(clientService.insert(client));
 	}
 
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<ClientDTO> update(@RequestBody ClientDTO client) {
+	public ResponseEntity<ClientDTOV2> update(@RequestBody ClientDTOV2 client) {
 		return ResponseEntity.status(HttpStatus.OK).body(clientService.update(client));
 	}
 
