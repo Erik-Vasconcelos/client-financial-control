@@ -3,14 +3,17 @@ package br.com.erudio.cfc.dto.v2;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.hateoas.RepresentationModel;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import br.com.erudio.cfc.model.enums.ClientStatus;
 import br.com.erudio.cfc.model.enums.Gender;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  * @author Erik Vasconcelos
@@ -21,9 +24,10 @@ import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @JsonPropertyOrder({ "id", "firstName", "lastName", "birthDate", "telephone", "gender", "status", "addresses" })
-public class ClientDTOV2 {
+public class ClientDTOV2 extends RepresentationModel<ClientDTOV2>{
 
 	private Long id;
 	private String firstName;

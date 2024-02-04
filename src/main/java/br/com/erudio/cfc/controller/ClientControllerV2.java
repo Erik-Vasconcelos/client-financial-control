@@ -31,12 +31,12 @@ public class ClientControllerV2 {
 	private ClientServiceV2 clientService;
 	
 	@GetMapping(value = "/{id}", consumes = {MediaType.JSON, MediaType.XML, MediaType.YAML, MediaType.YAML}, produces = {MediaType.JSON, MediaType.XML, MediaType.YAML})
-	public ResponseEntity<ClientDTOV2> getPerson(@PathVariable(name = "id") Long id) {
+	public ResponseEntity<ClientDTOV2> getClient(@PathVariable(name = "id") Long id) {
 		return ResponseEntity.status(HttpStatus.OK).body(clientService.findById(id));
 	}
 
 	@GetMapping(consumes = {MediaType.JSON, MediaType.XML, MediaType.YAML}, produces = {MediaType.JSON, MediaType.XML, MediaType.YAML})
-	public ResponseEntity<List<ClientDTOV2>> getPerson() {
+	public ResponseEntity<List<ClientDTOV2>> getClients() {
 		return ResponseEntity.status(HttpStatus.OK).body(clientService.findAll());
 	}
 

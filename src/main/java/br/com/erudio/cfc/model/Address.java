@@ -14,7 +14,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * @author Erik Vasconcelos
@@ -25,7 +27,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "endereco")
+@Table(name = "address")
 public class Address {
 
 	@Id
@@ -52,6 +54,8 @@ public class Address {
 	private String postalCode;
 	private String complement;
 	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@JsonIgnore
 	@ManyToOne
 	private Client client;
