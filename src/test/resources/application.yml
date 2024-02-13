@@ -1,3 +1,6 @@
+server:
+  port: 8888
+
 springdoc:
   paths-to-match: /api/**/v**/**
   swagger-ui:
@@ -5,9 +8,6 @@ springdoc:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/financial_control?autoReconnect=true
-    username: postgres
-    password: postgre2023
   jpa: 
     open-in-view: false
     hibernate:
