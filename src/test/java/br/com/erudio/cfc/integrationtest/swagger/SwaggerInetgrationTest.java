@@ -1,16 +1,15 @@
-package br.com.erudio.cfc;
+package br.com.erudio.cfc.integrationtest.swagger;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import br.com.erudio.cfc.integrationtest.swagger.AbstractIntegrationTest;
-import br.com.erudio.cfc.integrationtest.swagger.TestConfigs;
+import br.com.erudio.cfc.config.TestConfigs;
 import io.restassured.RestAssured;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-class ClientFinancialControlApplicationTests extends AbstractIntegrationTest{
+class SwaggerInetgrationTest extends AbstractIntegrationTest{
 
 	@Test
 	void showDisplayUiPage() {

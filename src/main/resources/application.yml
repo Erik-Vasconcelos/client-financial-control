@@ -1,3 +1,5 @@
+cors:
+  origenPatterns: http://localhost:8080,http://localhost:8081,https://erudio.com.br
 springdoc:
   paths-to-match: /api/**/v**/**
   swagger-ui:
