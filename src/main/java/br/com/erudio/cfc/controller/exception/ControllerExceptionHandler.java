@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import br.com.erudio.cfc.exception.InvalidTokenAuthenticationException;
 import br.com.erudio.cfc.exception.ObjectNotFoundException;
 import br.com.erudio.cfc.exception.RequestWithNullObjectException;
 
@@ -44,4 +45,11 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
 	}
 
+	@ExceptionHandler(InvalidTokenAuthenticationException.class)
+	public ResponseEntity<StandadError> notFoundErroHandler(InvalidTokenAuthenticationException ex, WebRequest request) {
+		StandadError err = new StandadError(HttpStatus.FORBIDDEN.value(), ex.getMessage(),
+				request.getDescription(false), Instant.now());
+		
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).body(err);
+	}
 }

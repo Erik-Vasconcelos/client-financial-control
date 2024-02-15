@@ -2,9 +2,15 @@ server:
   port: 8888
 cors:
   origenPatterns: http://localhost:8080,http://localhost:8081,https://erudio.com.br
-
+security:
+  jwt:
+    token:
+      secret-key: 53cr37
+      expired-lenght: 3600000
 springdoc:
-  paths-to-match: /api/**/v**/**
+  paths-to-match: 
+    - /auth/**
+    - /api/**/v**/**
   swagger-ui:
     use-root-path: true
 spring:
